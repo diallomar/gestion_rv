@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Patient index
+{% endblock %}
+
+
+{% block body %}
+	{% if app.user.roles ==["ROLE_ADMIN","ROLE_USER"] %}
+		<h1>Liste des Patients</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Email</th>
+					<th>Adresse</th>
+					<th>Date_rv</th>
+					<th>Contact</th>
+					<th>Motif</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for patient in patients %}
+					<tr>
+						<td>{{ patient.id }}</td>
+						<td>{{ patient.nom }}</td>
+						<td>{{ patient.prenom }}</td>
+						<td>{{ patient.email }}</td>
+						<td>{{ patient.Adresse }}</td>
+						<td>{{ patient.daterv ? patient.daterv|date('Y-m-d') : '' }}</td>
+						<td>{{ patient.contact }}</td>
+						<td>{{ patient.Motif }}</td>
+						<td>
+							<a href="{{path('envoie_mail',{'id':patient.id})}}">accepter</a>
+							<a href="mailto:{{patient.email}}" style="color:yellow;">suggerer</a>
+							<a href="{{path('patient_show',{'id':patient.id})}}" style="color:red;">supprimer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="9">La liste de vos patients est vide</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<p>Tu es connecté en tant que
+			{{ app.user.username }},
+			<a href="{{ path('app_logout') }}">Deconnexion?</a>
+		</p>
+		<div class="container">
+			<span class="btn btn-outline-primary">
+				<a href="{{path('user_index')}}">Ajouter un nouveau utilisateur</a>
+			</span>
+		</div>
+	{% elseif app.user.roles == ["ROLE_USER"] %}
+		<h1>Liste des Patients</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Email</th>
+					<th>Adresse</th>
+					<th>Date_rv</th>
+					<th>Contact</th>
+					<th>Motif</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for patient in patients %}
+					<tr>
+						<td>{{ patient.id }}</td>
+						<td>{{ patient.nom }}</td>
+						<td>{{ patient.prenom }}</td>
+						<td>{{ patient.email }}</td>
+						<td>{{ patient.Adresse }}</td>
+						<td>{{ patient.daterv ? patient.daterv|date('Y-m-d') : '' }}</td>
+						<td>{{ patient.contact }}</td>
+						<td>{{ patient.Motif }}</td>
+						<td>
+							<a href="{{path('envoie_mail',{'id':patient.id})}}">accepter</a>
+							<a href="mailto:{{patient.email}}" style="color:yellow;">suggerer</a>
+							<a href="{{path('patient_show',{'id':patient.id})}}" style="color:red;">supprimer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="9">La liste de vos patients est vide</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<p>Tu es connecté en tant que
+			{{ app.user.username }},
+			<a href="{{ path('app_logout') }}">Deconnexion?</a>
+		</p>
+	{% else %}
+
+		<p>veuillez vous connectez pour voir la liste de vos patients.
+			<a href="{{path('app_login')}}" color="green">CONNEXION</a>?
+		</p>
+	{% endif %}
+{% endblock %}

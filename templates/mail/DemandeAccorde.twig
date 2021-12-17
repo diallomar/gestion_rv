@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	<code>
+		<h3>La demande de
+			{{prenom}}
+			{{nom}}
+			a été validé avec success ✅</h3>
+		<h4>
+			<a href="{{path('app_login')}}">cliquer ici pour se connecter!!</a>
+		</h4>
+	</code>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+	<div class="col-lg-4" style="background: rgba(0,0,0,0.6);margin-top:100px ; padding-top:1em;padding-bottom:3em;color:#fff;border-radius:10px;-webkit-box-shadow: 2px 2px 15px 0px rgba(0, 3, 0, 0.7);
+																						-moz-box-shadow:    2px 2px 15px 0px rgba(0, 3, 0, 0.7);
+																						box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7); margin-left:auto; margin-right: auto; ">
+
+		<form method="POST">
+			<fieldset class="form-group">
+
+				<form method="post">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
+
+					{% if app.user %}
+						<div class="mb-3">
+							Tu es connecté en tant que
+							{{ app.user.username }},
+							<a href="{{ path('app_logout') }}">Logout</a>
+							<p>accéder à la
+								<a href="{{path('patient_index')}}">liste des patients</a>
+							</p>
+						</div>
+					{% endif %}
+
+					<h1 class="h3 mb-3 font-weight-normal">connectez-vous svp!</h1>
+					<label for="inputEmail">Email</label>
+					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+					<label for="inputPassword">Password</label>
+					<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+					<button class="btn btn-outline-info" type="submit">
+						connexion
+					</button>
+				</form>
+
+
+			</fieldset>
+		</form>
+
+	</div>
+
+
+{% endblock %}

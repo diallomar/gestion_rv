@@ -1,0 +1,115 @@
+{% extends "base.html.twig" %}
+{% block head %}{% endblock %}
+
+{% block body %}
+	<body id="top">
+		<main>
+			<section class="hero" id="hero">
+				<div>
+					<div class="row">
+
+						<div class="col-12">
+							<div>
+								<div>
+									<img src="images/R.jpg" class="img-responsive" style="width:1520px;height:200px;" alt="">
+								</div>
+							</div>
+
+							<div class="heroText d-flex flex-column justify-content-center">
+								<div class="btn btn-outline-success">
+									<h1 style="text-align:center">
+										Bienvenue dans sénégal consulting clinique !!!
+									</h1>
+								</div>
+								<h3 class="mt-auto mb-2">
+									Votre santé notre
+									<div class="animated-info">
+										<span class="btn btn-outline-info">priorité
+										</span>
+										<span>,</span>
+										<span class="btn btn-outline-info">bonheur
+										</span>
+										<span>et</span>
+										<span class="btn btn-outline-info">soulagement</span>
+										<span>!</span>
+									</div>
+								</h3>
+
+								<div class="heroLinks d-flex flex-wrap align-items-center">
+
+									<p class="contact-phone mb-0">
+										<i class="bi-phone"></i>
+									</p>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section class="section-padding" id="about">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-lg-6 col-md-6 col-12">
+							<h2 class="mb-lg-3 mb-3" style="color:#0dcaf0;">Actualité</h2>
+
+							<p>Va-t-il remplacer Delta ? Découvert en Afrique du Sud fin novembre, le variant Omicron du Covid-19 provoque une vive inquiétude de la part des autorités de santé. En cause : sa probable grande transmissibilité, ainsi que ses nombreuses mutations qui pourraient lui permettre d'échapper à la protection conférée par les vaccins actuellement utilisés. Ce nouveau variant, initialement baptisé B.1.1.529, a été classé comme "préoccupant" par l'Organisation mondiale de la santé (OMS). De quoi le placer dans la catégorie la plus inquiétante de variants du Covid-19, aux côtés du Delta, qui domine pour l'instant sur la planète, et de ses rivaux plus faibles, Alpha, Beta et Gamma.</p>
+						</div>
+
+						<div class="col-lg-4 col-md-5 col-12 mx-auto">
+							<div class="featured-circle  shadow-lg d-flex justify-content-center align-items-center">
+								<p class="featured-text">
+									<span class="featured-number"></span>disponible tous les jours ouvables 6j/7<br>8h:00- 15h:30, samedi 10h:30 - 17h:30</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="container">
+					<div class="row">
+
+						<div class="col-lg-6 col-6 ps-0">
+							<a href="{{path('patient_new')}}">
+								<p>
+									<strong class="btn btn-outline-primary">Portail patient
+
+									</p>
+									<img src="images/gallery/istockphoto-976894446-170667a.jpg" class="img-fluid galleryImage" alt="get a vaccine">
+								</p>
+							</strong>
+						</a>
+					</div>
+
+					<div class="col-lg-6 col-6 pe-0">
+						<a href="{{path('app_login')}}">
+							<p>
+								<strong class="btn btn-outline-primary">
+									Portail Administratif
+								</p>
+								<img src="images/gallery/OIP.jfif" class="img-fluid galleryImage" alt="wear a mask">
+							</p>
+						</strong>
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</section>
+<section>
+	<div class="container">
+		<div class="row">
+			<a href="{{path('patient_new')}}">
+				<h2 class="text-center mb-lg-3 mb-2">prendre rendez-vous ?</h2>
+			</a>
+
+
+		</div>
+	</div>
+</section></main></body>{% endblock %}

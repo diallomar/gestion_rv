@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}utilisateurs
+{% endblock %}
+
+{% block body %}
+	<h1>Liste d'utilisateur</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Roles</th>
+				<th>Password</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+					<td>{{ user.password }}</td>
+					<td>
+						<a href="{{ path('user_show', {'id': user.id}) }}">show</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Votre liste d'utilisateur est vide</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<div class="row">
+		<div class="col-lg-3 col-md-6 col-12">
+			<a href="{{ path('app_register') }}" class="btn btn-outline-success">Nouveau utilisateur</a>
+		</div>
+		<div class="col-lg-3 col-md-6 col-12">
+			<a href="{{path('patient_index')}}" class="btn btn-outline-success">Acceder à la liste de Patients</a>
+		</div>
+		<div class="col-lg-3 col-md-6 col-12">
+			<a href="{{path('app_logout')}}" class="btn btn-outline-success">Deconnexion</a>
+		</div>
+	</div>
+{% endblock %}

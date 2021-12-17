@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Patient
+{% endblock %}
+
+{% block body %}
+	<h1>Réservez un rendez-vous</h1>
+
+	{{ include('patient/_form.html.twig') }}
+
+	{# <a href="{{ path('patient_index') }}">back to list</a> #}
+{% endblock %}
