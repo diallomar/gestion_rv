@@ -11,7 +11,11 @@
 		{# Run `composer require symfony/webpack-encore-bundle`
 																																																																																																																																																						           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
-			{#{{ encore_entry_link_tags('app') }}#}
+			<style>
+				body {
+					background-image: url("images/R.jpg");
+				}
+			</style>
 		{% endblock %}
 
 
